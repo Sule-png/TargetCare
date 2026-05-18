@@ -284,7 +284,7 @@
   }
 </style>
 
-</head>
+
 <body>
   <header>
     <div class="logo"><i class="fas fa-truck"></i> TargetCareLogistics</div>
@@ -326,7 +326,6 @@
     <li><strong>Door-to-Door Delivery</strong>: One pickup, one drop — complete convenience with tracking and support.</li>
   </ul>
   
-</html>au
  <!-- <h3>Why Choose Target Care?</h3>
   <p>
     <div style="text-align: center; margin: 40px 0;">
@@ -335,7 +334,6 @@
   <h3>Why Choose Target Care?</h3>
   <p>
     <div style="text-align: center; margin: 40px 0;">
-<img src="images/logo.png" alt="Logo" class="slide-in" />
 
 </div>
 
@@ -433,12 +431,8 @@
 </section>  -->
 
 <!-- Step-by-step setup to send confirmation email using EmailJS on the same HTML page -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Booking with EmailJS</title>
+
+  <title>Booking with Email</title>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
     body {
@@ -483,28 +477,6 @@
     <p id="booking-result" style="text-align: center; margin-top: 20px;"></p>
   </form>
 </section>
-
-  <script type="text/javascript">
-    // Initialize EmailJS with your PUBLIC key
-    (function() {
-      emailjs.init("5QQrUj58yLyQpfAR4"); // Replace with your EmailJS public key
-    })();
-
-    // Handle form submission
-    document.getElementById("booking-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      emailjs.sendForm("service_1jzp9tk", "template_zq7koku", this)
-        .then(function() {
-          alert("Booking confirmed! Confirmation email sent.");
-        }, function(error) {
-          alert("Failed to send email: " + JSON.stringify(error));
-        });
-    });
-  </script>
-
-</body>
-</html>
 
 
 
@@ -688,7 +660,7 @@
 
 
   // Initialize EmailJS
-//  emailjs.init("service_1jzp9tk");
+ emailjs.init("service_1jzp9tk");
    emailjs.init("5QQrUj58yLyQpfAR4"); 
 
   // Check if EmailJS is initialized
