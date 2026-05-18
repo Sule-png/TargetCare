@@ -10,10 +10,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </html>
 
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"
+  ></script>
 <script type="text/javascript">
   (function(){
-    emailjs.init("service_1jzp9tk"); // replace with your actual user ID from EmailJS
+    // emailjs.init("service_1jzp9tk");
+   emailjs.init("5QQrUj58yLyQpfAR4"); 
+    // replace with your actual user ID from EmailJS
   })();
 </script>
 
@@ -685,7 +688,8 @@
 
 
   // Initialize EmailJS
-  emailjs.init("service_1jzp9tk");
+//  emailjs.init("service_1jzp9tk");
+   emailjs.init("5QQrUj58yLyQpfAR4"); 
 
   // Check if EmailJS is initialized
   if (!emailjs) {  
@@ -751,7 +755,8 @@
 
 
   // Send email with EmailJS
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+ // emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+   emailjs.send("service_1jzp9tk", "template_zq7koku", { 
     name,
     email,
     cargo,
