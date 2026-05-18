@@ -1,0 +1,852 @@
+# TargetCare
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>Target Care Logistics</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</html>
+
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"
+  ></script>
+<script type="text/javascript">
+  (function(){
+    // emailjs.init("service_1jzp9tk");
+   emailjs.init("5QQrUj58yLyQpfAR4"); 
+    // replace with your actual user ID from EmailJS
+  })();
+</script>
+
+<style>
+    :root {
+      --orange: #f7941e;
+      --green: #007f5f;
+      --light-gray: #f9f9f9;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background-color: var(--green);
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+    .search-container {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+    .search-container input {
+      padding: 5px;
+      border: none;
+      border-radius: 4px;
+    }
+    .search-container button {
+      background: var(--orange);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    .hero {
+      background: url('../images/hero-banner.png') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .btn, .btn.outline {
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn {
+      background: var(--orange);
+      color: white;
+      border: none;
+    }
+    .btn.outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    section {
+      padding: 60px 20px;
+    }
+    #overview, #booking, #tracking, #admin {
+      background-color: var(--light-gray);
+    }
+    #services {
+      background-color: white;
+    }
+    #contact {
+      background-color: var(--orange);
+      color: white;
+    }
+    #contact a {
+      color: white;
+      text-decoration: underline;
+    }
+    h2 {
+      text-align: center;
+      color: var(--green);
+    }
+    h3 {
+      color: var(--orange);
+    }
+    form input, form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: var(--green);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: var(--green);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card h3 i {
+      margin-right: 10px;
+      color: var(--green);
+    }
+       html {
+  scroll-behavior: smooth;
+}
+  input, textarea {
+    width: 60%; 
+    max-width: 400px;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  button {
+    background-color: var(--green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+.slide-in {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+  .slide-in {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s ease;
+  }
+
+  .slide-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 768px) {
+    header nav a {
+      display: block;
+      margin: 5px 0;
+    }
+    .search-container {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .search-container input {
+      width: calc(100% - 50px);
+    }
+    .search-container button {
+      width: 50px;
+    }
+  }
+
+  .search-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .search-container input {
+      flex-grow: 1;
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .search-container button {
+      background-color: var(--orange);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+  .logo i {
+      margin-right: 10px;
+      color: var(--orange);
+    }
+
+  .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+
+
+  .logo i {
+      font-size: 1.8rem;
+      color: var(--orange);
+    }
+
+.slide-in {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+  .slide-in {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s ease;
+  }
+
+  .slide-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 768px) {
+    header nav a {
+      display: block;
+      margin: 5px 0;
+    }
+    .search-container {
+      width: 100%;
+      margin: 10px;
+    }
+    .search-container input {
+      width: calc(100% - 50px);
+    }
+    .search-container button {
+      width: 50px;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <header>
+    <div class="logo"><i class="fas fa-truck"></i> TargetCareLogistics</div>
+    <nav>
+      <a href="#services"> Services</a>
+      <a href="#booking">Bookings</a>
+      <a href="#tracking">Tracking</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="search-container">
+  <input type="text" placeholder="Search..." id="search-bar">
+  <button id="search-btn"><i class="fas fa-search"></i></button>
+</div>
+
+    </header>
+    
+  <!-- Overview Section -->
+  <section id="overview">
+  <h2> Target Care Logistics</h2>
+
+  <p>
+    At <strong>Target Care</strong>, we are redefining logistics in Nigeria and beyond. As a proudly Nigerian-led cargo and logistics brand, we believe in connecting people, businesses, and markets through seamless shipping, digital logistics, and end-to-end freight solutions.
+  </p>
+
+  <p>
+    Whether you’re moving goods by air, sea, or land — locally or globally — Target  Care provides scalable logistics services with precision and professionalism. Our mission is simple: to empower commerce, simplify movement, and deliver peace of mind to our customers, every step of the way.
+  </p>
+
+  <p>
+    With a growing footprint and a modern approach to supply chain management, we serve individuals, small businesses, and multinational corporations. Our commitment to speed, safety, and customer satisfaction sets us apart in the logistics industry.
+  </p>
+  <h3>Our Core Services</h3>
+  <ul>
+    <li><strong>Supply Chain Management</strong>: We design, monitor, and optimize the movement of goods from origin to destination.</li>
+    <li><strong>Warehousing</strong>: From short-term storage to inventory management, our warehouses are secure, scalable, and smart.</li>
+    <li><strong>Global Freight</strong>: We move cargo across continents via a trusted network of international partners and carriers.</li>
+    <li><strong>Air Freight</strong>: Urgent and high-value goods? We deliver swiftly using our air freight channels.</li>
+    <li><strong>Sea Cargo</strong>: Economical and reliable ocean shipping — FCL, LCL, and full customs support.</li>
+    <li><strong>Door-to-Door Delivery</strong>: One pickup, one drop — complete convenience with tracking and support.</li>
+  </ul>
+  
+</html>au
+ <!-- <h3>Why Choose Target Care?</h3>
+  <p>
+    <div style="text-align: center; margin: 40px 0;">
+ #007f5f <img src="images/logo.png" alt="Why Choose Target Care" style="max-width: 100%; width: 400px; height: auto; display: block; margin: 30px auto;" /> -->
+
+  <h3>Why Choose Target Care?</h3>
+  <p>
+    <div style="text-align: center; margin: 40px 0;">
+<img src="images/logo.png" alt="Logo" class="slide-in" />
+
+</div>
+
+    We believe logistics should be fast, reliable, and easy — not overwhelming. That’s why we’ve built Target Care to be a customer-first service. We blend technology with a human touch, allowing our clients to track, book, and manage shipments without stress.
+  </p>
+
+  <p>
+    Target Care is not just a service — it’s a movement. We're simplifying logistics for a new generation of entrepreneurs, exporters, importers, and families across Nigeria and the world.
+  </p>
+</section>
+
+  <!-- Services Section -->
+<section id="services">
+  <h2>Our Services</h2>
+  <p>
+    At <strong>Target Care</strong>, we are more than just a logistics company — we are your strategic partner in efficient global transport, warehousing, and end-to-end delivery. Our services are tailored to meet the diverse and complex needs of today’s fast-moving world. Whether you’re shipping across cities, continents, or oceans, Target Care ensures your freight moves swiftly, securely, and reliably.
+  </p>
+
+  <h3>1. Supply Chain Management</h3>
+  <p>
+    Our supply chain services are designed to give you full control and transparency across your logistics network. From procurement to delivery, we help businesses manage every stage of their supply chain through intelligent planning, tracking, and optimization. We leverage technology, analytics, and decades of expertise to streamline operations and reduce costs.
+  </p>
+  <p>
+    Whether you run a retail operation, an e-commerce store, or a manufacturing business, Target Care integrates seamlessly with your systems to provide flexible, real-time supply chain solutions. We reduce inefficiencies, minimize delays, and help you respond to market changes quickly. The result? A resilient supply chain that’s built to adapt and thrive.
+  </p>
+
+  <h3>2. Warehousing Solutions</h3>
+  <p>
+    Our warehousing services go beyond simple storage. We offer secure, climate-controlled, strategically located facilities that ensure your goods are protected and easy to access at all times. Whether you need long-term inventory storage or short-term cross-docking, our warehousing infrastructure is scalable and flexible.
+  </p>
+  <p>
+    Additionally, we provide value-added services like inventory management, order fulfillment, packaging, labeling, and distribution. Our smart warehousing system allows you to monitor your stock levels in real time, forecast needs, and improve overall efficiency. By partnering with us, you gain peace of mind and powerful logistical support under one roof.
+  </p>
+
+  <h3>3. Global Freight Services</h3>
+  <p>
+    With a network that spans across continents, Target Care offers comprehensive global freight forwarding solutions. We manage the complexity of international shipping, so you don’t have to. From customs clearance to regulatory compliance, we handle every detail to ensure smooth and timely delivery of your goods.
+  </p>
+  <p>
+    Our global freight services are ideal for businesses looking to expand their reach or optimize cross-border supply chains. With advanced tracking systems and dedicated support teams, we keep you informed and in control of every shipment, no matter where in the world it’s going.
+  </p>
+
+  <h3>4. Air Freight</h3>
+  <p>
+    When speed is critical, air cargo is the solution — and Target Care delivers. Our air freight services are fast, secure, and globally connected. We partner with major airlines and operate through international airports to get your goods where they need to be in the shortest time possible.
+  </p>
+  <p>
+    Ideal for perishable items, urgent deliveries, or high-value shipments, our air freight offering includes door-to-door service, customs handling, and insurance options. We also provide shipment consolidation to help reduce costs without sacrificing speed. Globally Target care keeps your air shipments flying smoothly.
+  </p>
+
+  <h3>5. Sea Cargo</h3>
+  <p>
+    Sea cargo is the backbone of global trade, and Target Care brings you reliable and cost-effective ocean freight solutions. We offer both Full Container Load (FCL) and Less than Container Load (LCL) options depending on your cargo volume and budget. From bulky machinery to consumer goods, we move it all.
+  </p>
+  <p>
+    With trusted partnerships at major seaports and years of experience navigating international trade regulations, Target Care ensures that your sea freight is handled professionally at every step. Our services include container tracking, insurance, documentation, and customs clearance. You can rely on us to deliver ocean freight that’s economical, secure, and on time.
+  </p>
+
+  <h3>6. Door-to-Door Delivery</h3>
+  <p>
+    For maximum convenience and peace of mind, our door-to-door delivery service handles every detail — from pickup at the origin to final drop-off at the destination. Whether you’re shipping to a residential customer or a business client, we make the experience simple and worry-free.
+  </p>
+  <p>
+    This service is available for both local and international deliveries. We pick up your goods, transport them via air, land, or sea, and deliver them directly to your recipient’s doorstep. With transparent tracking and 24/7 support, you stay informed every step of the way. Target Care makes shipping easier, more efficient, and more personal.
+  </p>
+
+  <h3>Why Choose Target Care?</h3>
+  <p>
+    Our strength lies in our commitment to excellence, transparency, and customer satisfaction. We use technology to streamline logistics while still offering the personal touch of human service. Every shipment is important to us — whether it’s a single parcel or a large-scale supply chain operation.
+  </p>
+  <ul>
+    <li>Real-time cargo tracking and updates</li>
+    <li>Custom-tailored logistics plans</li>
+    <li>Reliable delivery timelines</li>
+    <li>24/7 customer support</li>
+    <li>Global reach with local care</li>
+  </ul>
+  <p>
+    Ready to simplify your logistics? Choose Go Cargo for dependable, efficient, and modern shipping solutions that help your business grow.
+  </p>
+</section>
+
+<!-- Booking Section 
+<section id="booking" style="background-color: #f9f9f9; padding: 60px 20px;">
+  <h2 style="color: #007f5f; text-align: center;">Book a Shipment</h2>
+  <form id="booking-form" style="max-width: 500px; margin: auto;">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <input type="text" name="phone" placeholder="Phone number" required />
+    <input type="text" id="cargo" placeholder="Cargo Type" required />
+    <input type="text" id="destination" placeholder="Destination" required />
+    <button type="submit">Submit</button><form action="/book" method="POST"
+    <p id="booking-result" style="text-align: center; margin-top: 20px;"></p>
+  </form>
+</section>  -->
+
+<!-- Step-by-step setup to send confirmation email using EmailJS on the same HTML page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking with EmailJS</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007f5f;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<section id="booking" style="background-color: #f9f9f9; padding: 60px 20px;">
+  <h2 style="color: #007f5f; text-align: center;">Book a Shipment</h2>
+  <form id="booking-form" style="max-width: 500px; margin: auto;">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <input type="text" name="phone" placeholder="Phone number" required />
+    <input type="text" id="cargo" placeholder="Cargo Type" required />
+    <input type="text" id="destination" placeholder="Destination" required />
+    <button type="submit">Submit</button><form action="/book" method="POST"
+    <p id="booking-result" style="text-align: center; margin-top: 20px;"></p>
+  </form>
+</section>
+
+  <script type="text/javascript">
+    // Initialize EmailJS with your PUBLIC key
+    (function() {
+      emailjs.init("5QQrUj58yLyQpfAR4"); // Replace with your EmailJS public key
+    })();
+
+    // Handle form submission
+    document.getElementById("booking-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm("service_1jzp9tk", "template_zq7koku", this)
+        .then(function() {
+          alert("Booking confirmed! Confirmation email sent.");
+        }, function(error) {
+          alert("Failed to send email: " + JSON.stringify(error));
+        });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+<!-- Tracking Section -->
+<section id="tracking" style="background-color: white; padding: 60px 20px;">
+  <h2 style="color: #007f5f; text-align: center;">Track Your Shipment</h2>
+  <form id="tracking-form" style="max-width: 500px; margin: auto;">
+    <input type="text" id="tracking-id" placeholder="Enter Tracking ID" required />
+    <button type="submit">Track</button>
+  </form>
+  <div id="tracking-result" style="text-align: center; margin-top: 20px;"></div>
+</section>
+
+<!-- Admin Dashboard
+<section id="admin" style="background-color: #f9f9f9; padding: 60px 20px;">
+  <h2 style="color: #007f5f; text-align: center;">Admin Dashboard</h2>
+  <div id="admin-bookings" style="max-width: 700px; margin: auto;">
+    <p>No bookings yet.</p>
+  </div>
+</section> -->
+
+
+  <!-- Booking Form 
+  <section id="booking">
+    <h2>Book a Shipment</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required style="width: 250px; font-size: 14px; padding: 8px;"/>
+      <input type="email" placeholder="Your Email" required style="width: 250px; font-size: 14px; padding: 8px;"/>
+      <input type="text" placeholder="Cargo Type" required style="width: 250px; font-size: 14px; padding: 8px;" />
+      <input type="text" placeholder="Destination" required style="width: 250px; font-size: 14px; padding: 8px;" />
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Tracking Section 
+  <section id="tracking">
+    <h2>Track Shipment</h2>
+    <form>
+      <input type="text" placeholder="Enter Tracking ID" required style="width: 250px; font-size: 14px; padding: 8px;"/>
+      <button type="submit">Track</button>
+    </form>
+  </section> -->
+
+  <!-- Contact Section -->
+  <section id="contact">
+  <h2>Contact Us</h2>
+  
+  <p>
+    We'd love to hear from you. Whether you're requesting a quote, tracking a shipment, or asking a question, we're here to help.
+  </p>
+
+  <div style="margin: 20px 0;">
+    <strong>Email:</strong><br />
+    <a href="mailto:targetcargo@gmail.com">targetcargo@gmail.com</a><br />
+    <a href="mailto:akinbanky12@gmail.com">akinbanky12@gmail.com</a>
+  </div>
+
+  <div style="margin: 20px 0;">
+    <strong>Phone:</strong><br />
+    <a href="tel:+2348033153061">+234 803 315 3061</a><br />
+    <a href="tel:+2348029778421">+234 802 977 8421</a>
+  </div>
+
+  <form>
+  <input type="text" placeholder="Your Name" style="width: 250px; font-size: 14px; padding: 8px;" />
+  <input type="email" placeholder="Email" style="width: 250px; font-size: 14px; padding: 8px;" />
+  <textarea placeholder="Your Message" style="width: 250px; height: 80px; font-size: 14px;"></textarea>
+  <button type="submit" style="width: 150px;">Submit</button>
+</form>
+</section>
+
+<section>
+    <h2>Our Location</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31715.64304527954!2d3.3792!3d6.5244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf44f4d96125b%3A0x4c128f89f7a4326f!2sLagos!5e0!3m2!1sen!2sng!4v1685106181365!5m2!1sen!2sng" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>  
+
+<link rel="icon" href="images/favicon.png" />
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 5px; right: 5px; padding: 10px 15px; background: #007f5f; color: white; border: none; border-radius: 5px; cursor: pointer;">⬆ Top</button>
+<script>
+  const elements = document.querySelectorAll('.slide-in');
+  //const observer = new IntersectionObserver(entries => {
+  //  entries.forEach(entry => {
+  //    if (entry.isIntersecting) entry.target.classList.add('visible');
+  //  });
+  //}, { threshold: 0.1 });
+
+  elements.forEach(el => observer.observe(el));
+</script>
+<section id="faq" style="padding: 60px 20px; background-color: #f9f9f9;">
+  <h2 style="text-align: center; color: #007f5f;">Frequently Asked Questions</h2>
+
+  <details style="margin: 20px 0;">
+    <summary style="font-weight: bold; cursor: pointer; font-size: 16px; color: #f7941e;">
+      How do I book a shipment?
+    </summary>
+    <p style="margin-top: 10px;">Go to the "Booking" section, fill in your shipment details, and submit. We'll get in touch promptly.</p>
+  </details>
+
+  <details style="margin: 20px 0;">
+    <summary style="font-weight: bold; cursor: pointer; font-size: 16px; color: #f7941e;">
+      Can I track my cargo in real time?
+    </summary>
+    <p style="margin-top: 10px;">Yes. Use the "Tracking" section and input your tracking ID for live updates.</p>
+  </details>
+
+  <details style="margin: 20px 0;">
+    <summary style="font-weight: bold; cursor: pointer; font-size: 16px; color: #f7941e;">
+      Where are you located?
+    </summary>
+    <p style="margin-top: 10px;">We operate from Lagos, Nigeria, with branches in Ibadan and the United Kingdom. You can find our address and map under the “Our Location” section.</p>
+  </details>
+
+  <details style="margin: 20px 0;">
+    <summary style="font-weight: bold; cursor: pointer; font-size: 16px; color: #f7941e;">
+      What are your delivery options?
+    </summary>
+    <p style="margin-top: 10px;">We offer air freight, sea cargo, door-to-door delivery, and global freight solutions.</p>
+  </details>
+
+  <details style="margin: 20px 0;">
+    <summary style="font-weight: bold; cursor: pointer; font-size: 16px; color: #f7941e;">
+      Do you ship internationally?
+    </summary>
+    <p style="margin-top: 10px;">Yes. We ship from Ibadan to London, Anywhere in the UK, from Lagos to London,from London to Nigeria, and nationally with full customs support and tracking.</p>
+  </details>
+
+  <details style="margin: 20px 0;">
+    <summary style="font-weight: bold; cursor: pointer; font-size: 16px; color: #f7941e;">
+      What should I do if my cargo is delayed?
+    </summary>
+    <p style="margin-top: 10px;">Contact our support via phone or email. We'll check your tracking and resolve it quickly.</p>
+    
+  </details>
+
+  <details style="margin: 20px 0;">
+    <summary style="font-weight: bold; cursor: pointer; font-size: 16px; color: #f7941e;">
+      How can I reach customer service?
+    </summary>
+    <p style="margin-top: 10px;">Call us at +2348033153061 or email <a href="mailto:targetcargo@gmail.com">targetcargo@gmail.com</a>.</p>
+  </details>
+</section>
+<script>
+  const searchInput = document.getElementById("search-bar");
+  const searchButton = document.getElementById("search-btn");
+
+  searchButton.addEventListener("click", function () {
+    const query = searchInput.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+      const content = card.textContent.toLowerCase();
+      if (content.includes(query)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<script>
+
+  document.getElementById("booking-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const cargo = document.getElementById("cargo").value;
+  const destination = document.getElementById("destination").value;
+  const trackingId = "TC" + Math.floor(Math.random() * 100000);
+
+  const booking = { name, email, cargo, destination, trackingId };
+  bookings.push(booking);
+  document.getElementById("booking-result").innerText = "Booking successful! Tracking ID: " + trackingId;
+
+  // Show on Admin Dashboard
+  showBookings();
+
+  // Save booking to local storage (or database in a real app)
+  localStorage.setItem("bookings", JSON.stringify(bookings));
+
+
+  // Initialize EmailJS
+//  emailjs.init("service_1jzp9tk");
+   emailjs.init("5QQrUj58yLyQpfAR4"); 
+
+  // Check if EmailJS is initialized
+  if (!emailjs) {  
+    alert("EmailJS is not initialized. Please check your user ID.");
+    return;
+  }       
+
+
+  // Validate email format
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {    
+    alert("Please enter a valid email address.");
+    return;
+  }          
+
+  // Validate cargo and destination fields
+  if (!cargo || !destination) {
+    alert("Cargo and destination fields cannot be empty.");
+    return;
+  }     
+  // Validate name field
+  if (!name) {  
+    alert("Name field cannot be empty.");
+    return;
+  }
+  // Validate tracking ID
+
+  if (!trackingId) {
+    alert("Tracking ID cannot be empty.");
+    return;
+  } 
+
+
+  // Validate that all fields are filled
+  if (!name || !email || !cargo || !destination) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  // Validate that cargo and destination are not too short
+  if (cargo.length < 3 || destination.length < 3) {
+    alert("Cargo and destination must be at least 3 characters long.");
+    return;
+  }
+
+  // Validate that tracking ID is unique
+  if (bookings.some(b => b.trackingId === trackingId)) {
+    alert("Tracking ID must be unique. Please try again.");
+    return;
+  }
+
+  // Validate that email is not already used
+  if (bookings.some(b => b.email === email)) {
+    alert("This email is already used for a booking. Please use a different email.");
+    return;
+  }
+
+  // Validate that cargo and destination are not too long
+  if (cargo.length > 100 || destination.length > 100) { 
+    alert("Cargo and destination must not exceed 100 characters.");
+    return;
+  }
+
+
+  // Send email with EmailJS
+ // emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+   emailjs.send("service_1jzp9tk", "template_zq7koku", { 
+    name,
+    email,
+    cargo,
+    destination,
+    tracking_id: trackingId,
+  }).then(() => {
+    alert("Booking successful! Tracking ID: " + trackingId + "\nAn email has been sent to you.");
+    showBookings();
+  }).catch((error) => {
+    alert("Booking saved but email failed. " + error);
+  });
+});
+
+  const bookings = [];
+
+  document.getElementById("booking-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const cargo = document.getElementById("cargo").value;
+    const destination = document.getElementById("destination").value;
+    const trackingId = "TC" + Math.floor(Math.random() * 100000);
+
+    const booking = { name, email, cargo, destination, trackingId };
+    bookings.push(booking);
+
+    alert("Booking successful!\nTracking ID: " + trackingId + "\nA confirmation email would be sent.");
+
+    document.getElementById("booking-result").innerText = "Booking successful! Tracking ID: " + trackingId;
+
+    // Show on Admin Dashboard
+    showBookings();
+  });
+
+  document.getElementById("tracking-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const id = document.getElementById("tracking-id").value;
+    const result = bookings.find(b => b.trackingId === id);
+    document.getElementById("tracking-result").innerText = result ?
+      `Cargo: ${result.cargo}\nDestination: ${result.destination}` :
+      "Tracking ID not found.";
+  });
+
+  function showBookings() {
+    const adminDiv = document.getElementById("admin-bookings");
+    if (bookings.length === 0) {
+      adminDiv.innerHTML = "<p>No bookings yet.</p>";
+    } else {
+      adminDiv.innerHTML = bookings.map(b => `
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background: white;">
+          <strong>Name:</strong> ${b.name}<br>
+          <strong>Email:</strong> ${b.email}<br>
+          <strong>Cargo:</strong> ${b.cargo}<br>
+          <strong>Destination:</strong> ${b.destination}<br>
+          <strong>Tracking ID:</strong> ${b.trackingId}
+        </div>
+      `).join('');
+    }
+  }
+</script>
+
+<footer>
+  <p>&copy; 2023 Target Care Logistics. All rights reserved.</p>
+  <p>Follow us on 
+    <a href="https://www.facebook.com/targetcarelogistics" target="_blank">Facebook</a>, 
+    <a href="https://www.twitter.com/targetcarelogistics" target="_blank">Twitter</a>, 
+    <a href="https://www.instagram.com/targetcarelogistics" target="_blank">Instagram</a>
+  </p>
+
+<script>
+  // Show image when it scrolls into view
+
+
+  const slideInElements = document.querySelectorAll('.slide-in');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  slideInElements.forEach(el => observer.observe(el));
+  
+</script>
+
+
+
+</footer>
+</body>
+</html>
+
